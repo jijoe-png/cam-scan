@@ -1,0 +1,2 @@
+# cam-scan
+a collection of default ip camera credentials in one place
