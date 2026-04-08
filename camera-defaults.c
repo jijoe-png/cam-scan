@@ -11,7 +11,7 @@ void user_input(char* buffer){
 	ssize_t UserInput;	
 	if((UserInput = read(0, buffer, UserBuffer))){
 		buffer[strcspn(buffer, "\n")] = 0;	
-		//buffer[strcspn(buffer, " ")] = 0;	
+		//buffer[strcspn(buffer, " ")] = 0;	// disabled because some of the names have white space in them 
 	}
 
 	return;
@@ -46,11 +46,12 @@ void keyword(char * input){
 	} else if(!strncmp(input, "quit", 1)){
 		exit(1);
 	}else if(!strncmp(input, "help", 1)){
-		printf("----------\noptions:\n\t(help | prints this screen)\n\t(query | search for camera)\n\t(print | print all cameras)\n\t({q}uit | close program)\n----------");
+		printf("----------\noptions:\n\t(help | prints this screen)\n\t(query | search for camera)\n\t(print | print all cameras)\n\t({q}uit | close program)\n----------\n");
 	}
 	return;
 }
 
+//interactive mode is used when no args are given
 void interactive(){
 	unsigned short state=1;
 	char buffer[UserBuffer];
